@@ -1,0 +1,16 @@
+version: '3.8'
+services: 
+  db:
+    image: docker.arvancloud.ir/postgres
+    container_name: postgres
+    environment:
+      POSTGRES_DB: social
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      #- ./scripts:/docker-entrypoint-initdb.d 
+    ports:
+      - "5432:5432"
+volumes:
+ db-data:
